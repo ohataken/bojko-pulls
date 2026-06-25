@@ -17,4 +17,4 @@ jobs:
         with:
           ruby-version: '3.4'
           bundler-cache: false
-      - run: cd bojko_pulls_session_create && bundle install --path vendor/bundle
+      - run: cd bojko_pulls_session_create && bundle config set --local path 'vendor/bundle' && bundle install
