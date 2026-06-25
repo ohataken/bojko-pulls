@@ -1,0 +1,20 @@
+name: Deploy bojko_pulls_session_destroy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'bojko_pulls_session_destroy/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: false
+      - run: cd bojko_pulls_session_destroy && bundle install --path vendor/bundle
