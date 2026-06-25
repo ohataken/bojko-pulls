@@ -1,0 +1,20 @@
+name: Deploy bojko_pulls_github_pulls
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'bojko_pulls_github_pulls/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: false
+      - run: cd bojko_pulls_github_pulls && bundle install --path vendor/bundle
