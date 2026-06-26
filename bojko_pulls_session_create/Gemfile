@@ -8,3 +8,7 @@ gemspec
 gem "irb"
 gem "rake", "~> 13.0"
 gem "aws-sdk-dynamodb"
+
+group :development do
+  gem "standard"
+end
