@@ -1,0 +1,18 @@
+name: Lint bojko_pulls_session_complete
+
+on:
+  pull_request:
+    paths:
+      - 'bojko_pulls_session_complete/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: false
+      - run: cd bojko_pulls_session_complete && bundle config set --local path 'vendor/bundle' && bundle install
+      - run: cd bojko_pulls_session_complete && bundle exec rake standard
