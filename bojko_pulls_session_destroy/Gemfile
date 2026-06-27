@@ -5,10 +5,10 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in bojko_pulls_session_destroy.gemspec
 gemspec
 
-gem "irb"
 gem "rake", "~> 13.0"
 gem "aws-sdk-dynamodb"
 
 group :development do
+  gem "irb"
   gem "standard"
 end
