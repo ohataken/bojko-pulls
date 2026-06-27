@@ -18,3 +18,4 @@ jobs:
           ruby-version: '3.4'
           bundler-cache: false
       - run: cd bojko_pulls_github_pulls && bundle config set --local path 'vendor/bundle' && bundle install
+      - run: cd bojko_pulls_github_pulls && zip -r ../bojko_pulls_github_pulls.zip .
