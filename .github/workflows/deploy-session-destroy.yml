@@ -8,6 +8,10 @@ on:
       - 'bojko_pulls_session_destroy/**'
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,3 +23,7 @@ jobs:
           bundler-cache: false
       - run: cd bojko_pulls_session_destroy && bundle config set --local path 'vendor/bundle' && bundle install
       - run: cd bojko_pulls_session_destroy && zip -r ../bojko_pulls_session_destroy.zip .
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
