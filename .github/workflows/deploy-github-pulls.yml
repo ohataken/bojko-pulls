@@ -31,3 +31,7 @@ jobs:
         with:
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+      - run: |
+          aws lambda update-function-code \
+            --function-name bojko-pulls-github-pulls \
+            --zip-file fileb://bojko_pulls_github_pulls.zip
