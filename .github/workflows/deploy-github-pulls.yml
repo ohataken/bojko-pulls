@@ -28,6 +28,7 @@ jobs:
       - run: |
           cd bojko_pulls_github_pulls
           bundle config set --local path 'vendor/bundle'
+          bundle config set --local without development
           bundle install
       - run: cd bojko_pulls_github_pulls && zip -r ../bojko_pulls_github_pulls.zip .
       - uses: aws-actions/configure-aws-credentials@v4
