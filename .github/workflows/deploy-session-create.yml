@@ -12,6 +12,10 @@ permissions:
   id-token: write
   contents: read
 
+env:
+  AWS_REGION: ap-northeast-1
+  AWS_ROLE_ARN: arn:aws:iam::787309524765:role/bojko-pulls-github-actions-deploy
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
