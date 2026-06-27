@@ -31,3 +31,7 @@ jobs:
         with:
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+      - run: |
+          aws lambda update-function-code \
+            --function-name bojko-pulls-session-create \
+            --zip-file fileb://bojko_pulls_session_create.zip
