@@ -8,7 +8,7 @@ module BojkoPullsSessionCreate
     include Singleton
 
     def handle(event:, context:)
-      {statusCode: 200, body: "ok"}
+      {statusCode: 302, headers: {"Location" => "https://example.com"}, body: ""}
     end
   end
 end
