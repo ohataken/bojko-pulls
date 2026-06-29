@@ -3,6 +3,7 @@
 require "singleton"
 
 module BojkoPullsSessionDestroy
+  # DELETE /sessions
   class Handler
     include Singleton
 
