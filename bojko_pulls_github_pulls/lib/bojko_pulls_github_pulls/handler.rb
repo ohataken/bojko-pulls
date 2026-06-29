@@ -3,6 +3,7 @@
 require "singleton"
 
 module BojkoPullsGithubPulls
+  # GET /pulls
   class Handler
     include Singleton
 
