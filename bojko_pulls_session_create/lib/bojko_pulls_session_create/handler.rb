@@ -3,6 +3,7 @@
 require "singleton"
 
 module BojkoPullsSessionCreate
+  # POST /sessions
   class Handler
     include Singleton
 
