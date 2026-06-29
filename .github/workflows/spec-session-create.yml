@@ -1,0 +1,18 @@
+name: Spec bojko_pulls_session_create
+
+on:
+  pull_request:
+    paths:
+      - 'bojko_pulls_session_create/**'
+
+jobs:
+  spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: false
+      - run: cd bojko_pulls_session_create && bundle config set --local path 'vendor/bundle' && bundle install
+      - run: cd bojko_pulls_session_create && bundle exec rake spec
