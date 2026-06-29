@@ -1,0 +1,18 @@
+name: Spec bojko_pulls_github_pulls
+
+on:
+  pull_request:
+    paths:
+      - 'bojko_pulls_github_pulls/**'
+
+jobs:
+  spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: false
+      - run: cd bojko_pulls_github_pulls && bundle config set --local path 'vendor/bundle' && bundle install
+      - run: cd bojko_pulls_github_pulls && bundle exec rake spec
