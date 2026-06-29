@@ -3,5 +3,5 @@
 require_relative "lib/bojko_pulls_session_create"
 
 def handler(event:, context:)
-  {statusCode: 200, body: "ok"}
+  BojkoPullsSessionCreate::Handler.instance.handle(event: event, context: context)
 end
